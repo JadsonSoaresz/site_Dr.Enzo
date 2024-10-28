@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Estilo Geral */
+*{
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o padding padrão de todos os elementos */
+    box-sizing: border-box; /* Inclui bordas e padding nas dimensões totais do elemento */
+    font-family: "Poppins", sans-serif; /* Define a fonte padrão */
+} 
+
+body{
+    margin: 0; /* Remove a margem padrão do body */
+    padding: 0; /* Remove o padding padrão do body */
+    overflow-x: hidden; /* Remove a barra de rolagem horizontal */
+    background-color: rgb(0, 102, 94); /* Define a cor de fundo */
+    height: 100vh; /* Altura da tela inteira */
+}
+
+html{
+    scroll-behavior: smooth; /* Rolagem suave nas âncoras */
+}
+
+.interface{
+    max-width: 1280px; /* Define a largura máxima do conteúdo */
+    margin: 0 auto; /* Centraliza o conteúdo */
+}
+
+.flex{
+    display: flex; /* Ativa o layout flexível */
+}
+
+.JL-contato button{
+    color: white; /* Define a cor do texto do botão */
+    padding: 10px; /* Espaçamento interno do botão */
+    font-size: 18px; /* Tamanho da fonte do botão */
+    font-weight: 600; /* Peso da fonte */
+    background-color: rgb(0, 204, 255); /* Cor de fundo do botão */
+    border: 0; /* Remove a borda */
+    border-radius: 30px; /* Arredonda os cantos */
+    cursor: pointer; /* Muda o cursor para indicar que o botão é clicável */
+    transition: .2s; /* Animação suave ao interagir com o botão */
+}
+
+h2.titulo{
+    color: white; /* Cor do título */
+    font-size: 38px; /* Tamanho da fonte do título */
+    text-align: center; /* Centraliza o texto */
+}
+
+h2.titulo span{
+    color: rgb(0, 204, 255); /* Cor de destaque para o span dentro do título */
+}
+
+button:hover, form .btn-enviar input:hover{
+    box-shadow: 0px 0px 8px rgba(0, 204, 255, 0.733); /* Adiciona uma sombra ao passar o mouse */
+    transform: scale(1.05); /* Aumenta ligeiramente o tamanho ao passar o mouse */
+}
+
+/* Estilo do Cabeçalho */
+header{
+    padding: 40px 4%; /* Define o espaçamento interno do cabeçalho */
+}
+
+header > .interface{
+    display: flex; /* Layout flexível para o conteúdo do cabeçalho */
+    align-items: center; /* Alinhamento vertical centralizado */
+    justify-content: space-between; /* Espaço entre os itens */
+}
+
+header a{
+    color: white; /* Cor dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    display: inline-block; /* Torna o link um elemento inline-block */
+    transition: .2s; /* Animação suave ao interagir com o link */
+}
+
+header nav.menu-desktop a:hover{
+    color: rgba(0, 204, 255, 0.733); /* Muda a cor do link ao passar o mouse */
+    transform: scale(1.05); /* Aumenta ligeiramente o tamanho do link */
+}
+
+header nav ul{
+    list-style-type: none; /* Remove os marcadores da lista */
+}
+
+header nav.menu-desktop ul li{
+    display: inline-block; /* Coloca os itens da lista em linha */
+    padding: 0 40px; /* Espaçamento entre os itens do menu */
+}
+
+/* Estilo do Menu Mobile */
+.btn-abrir-menu i{
+    color: rgb(0, 204, 255); /* Cor do ícone do botão de abrir o menu */
+    font-size: 40px; /* Tamanho do ícone */
+}
+
+.btn-abrir-menu{
+    display: none; /* O botão só aparece em telas menores */
+}
+
+.menu-mobile{
+    background-color: rgba(255, 255, 255, 0.822); /* Cor de fundo do menu móvel */
+    height: 100vh; /* Altura do menu móvel */
+    position: fixed; /* Posiciona o menu de forma fixa na tela */
+    top: 0; /* Inicia no topo */
+    right: 0; /* Alinha à direita */
+    z-index: 99999; /* Prioridade sobre outros elementos */
+    width: 0%; /* Largura inicial do menu */
+    overflow: hidden; /* Esconde o conteúdo que ultrapassar os limites */
+    transition: .5s; /* Transição suave ao abrir/fechar */
+}
+
+.menu-mobile.abrir-menu{
+    width: 70%; /* Largura do menu ao abrir */
+}
+
+.menu-mobile.abrir-menu ~ .overlay-menu{
+    display: block; /* Mostra a sobreposição ao abrir o menu */
+}
+
+.menu-mobile .btn-fechar{
+    padding: 20px 5%; /* Espaçamento interno do botão de fechar */
+}
+
+.menu-mobile .btn-fechar i{
+    color: rgb(0, 204, 255); /* Cor do ícone de fechar */
+    font-size: 30px; /* Tamanho do ícone de fechar */
+}
+
+
+/* Menu mobile */
+.menu-mobile nav ul{
+    text-align: right; /* Alinha o texto dos itens do menu à direita */
+}
+
+.menu-mobile nav ul li a{
+    color: black; /* Cor dos links do menu */
+    font-size: 20px; /* Tamanho da fonte dos links */
+    font-weight: 300; /* Peso da fonte mais leve */
+    padding: 20px 8%; /* Espaçamento interno dos links */
+    display: block; /* Torna os links blocos para melhor controle de layout */
+}
+
+.menu-mobile nav ul li a:hover{
+    background-color: rgb(0, 204, 255); /* Cor de fundo ao passar o mouse nos links */
+    color: #000; /* Muda a cor do texto para preto ao passar o mouse */
+}
+
+.overlay-menu{
+    background-color:rgba(0, 147, 184, 0.616) ; /* Cor de fundo da sobreposição do menu */
+    width: 100%; /* Ocupa toda a largura da tela */
+    height: 100%; /* Ocupa toda a altura da tela */
+    position: fixed; /* Fixa a sobreposição no topo da tela */
+    top: 0; /* Posiciona no topo */
+    left: 0; /* Posiciona à esquerda */
+    z-index: 88888; /* Prioridade sobre outros elementos, mas abaixo do menu */
+    display: none; /* Inicialmente oculta a sobreposição */
+}
+
+/* Estilo do topo do site */
+section.topo-do-site{
+    padding: 40px 4%; /* Espaçamento interno da seção de topo */
+}
+
+section.topo-do-site .flex{
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 90px; /* Espaço entre os itens do topo */
+}
+
+.topo-do-site h1{
+    color: white; /* Cor do título principal */
+    font-size: 42px; /* Tamanho da fonte do título */
+    line-height: 40px; /* Altura da linha */
+}
+
+.topo-do-site h1 span{
+    color: rgb(0, 204, 255); /* Cor do texto em destaque no título */
+}
+
+.topo-do-site p{
+    color: white; /* Cor do texto do parágrafo */
+    margin: 40px 0; /* Espaçamento vertical */
+}
+
+.topo-do-site .img-topo-site img{
+    position: relative; /* Posicionamento relativo da imagem */
+    animation: flutuar 2s ease-in-out infinite alternate; /* Animação para "flutuar" a imagem */
+}
+
+@keyframes flutuar{
+    0%{
+        top: 0; /* Posição inicial */
+    }
+    100%{
+        top: 30px; /* Posição final na animação */
+    }
+}
+
+/* Estilo das especialidades */
+section.especialidades{
+    padding: 40px 4%; /* Espaçamento interno da seção de especialidades */
+}
+
+section.especialidades .flex{
+    gap: 60px; /* Espaço entre os itens das especialidades */
+    align-items: center; /* Alinhamento vertical centralizado */
+}
+
+.especialidades .especialidades-box{
+    color: white; /* Cor do texto */
+    padding: 40px; /* Espaçamento interno da caixa */
+    margin-top: 45px; /* Margem superior */
+    border-radius: 20px; /* Bordas arredondadas */
+    transition: .2s; /* Transição suave ao passar o mouse */
+}
+
+.especialidades .especialidades-box:hover{
+    transform: scale(1.05); /* Aumenta ligeiramente o tamanho ao passar o mouse */
+    box-shadow: 0 0 8px rgb(0, 204, 255); /* Adiciona uma sombra ao redor da caixa */
+}
+
+.especialidades .especialidades-box i{
+    font-size: 70px; /* Tamanho do ícone */
+    color: rgb(0, 204, 255); /* Cor do ícone */
+}
+
+.especialidades .especialidades-box h3{
+    font-size: 26px; /* Tamanho da fonte do título das especialidades */
+    margin: 15px 0; /* Espaçamento vertical */
+}
+
+/* Estilo da seção Sobre */
+section.sobre{
+    padding: 80px 4%; /* Espaçamento interno da seção sobre */
+}
+
+section.sobre .flex{
+    align-items: center; /* Alinhamento vertical dos itens */
+    gap: 60px; /* Espaçamento entre os itens */
+}
+
+.sobre .txt-sobre{
+    color: white; /* Cor do texto */
+}
+
+.sobre .txt-sobre h2{
+    font-size: 40px; /* Tamanho da fonte do título */
+    line-height: 40px; /* Altura da linha */
+    margin-bottom: 30px; /* Margem inferior */
+}
+
+.sobre .txt-sobre h2 span{
+    color: rgb(0, 204, 255); /* Cor do texto em destaque */
+    display: block; /* Faz com que o texto destacado ocupe toda a linha */
+}
+
+.sobre .txt-sobre p{
+    margin: 30px 0; /* Margem vertical */
+    text-align: justify; /* Alinha o texto de forma justificada */
+}
+
+.btn-social button{
+    color: white; /* Cor do texto dos botões sociais */
+    width: 60px; /* Largura dos botões */
+    height: 60px; /* Altura dos botões */
+    border-radius: 50%; /* Formato circular */
+    border: none; /* Remove a borda */
+    background-color: rgb(0, 204, 255); /* Cor de fundo dos botões */
+    font-size: 23px; /* Tamanho da fonte dos ícones */
+    cursor: pointer; /* Muda o cursor para indicar que o botão é clicável */
+    margin: 0 5px; /* Margem entre os botões */
+    transition: .2s; /* Transição suave ao interagir */
+}
+
+.sobre .img-sobre img{
+    border-radius: 20px; /* Bordas arredondadas da imagem */
+    margin: 20px 55px; /* Margem da imagem */
+    border: none; /* Remove qualquer borda */
+}
+
+/* Estilo do formulário de contato */
+section.formulario{
+    padding: 80px 4%; /* Espaçamento interno da seção de formulário */
+}
+
+form{
+    max-width: 500px; /* Define uma largura máxima para o formulário */
+    margin: 0 auto; /* Centraliza o formulário horizontalmente */
+    display: flex; /* Usa o layout flexbox */
+    justify-content: center; /* Centraliza os itens */
+    flex-direction: column; /* Organiza os itens em coluna */
+    gap: 10px; /* Espaçamento entre os itens do formulário */
+}
+
+form input, form textarea{
+    width: 100%; /* Os campos ocupam toda a largura disponível */
+    background-color: white; /* Fundo branco para os campos */
+    border: 1px solid rgb(0, 204, 255); /* Borda com a cor azul clara */
+    outline: 0; /* Remove o contorno padrão do navegador */
+    padding: 20px 15px; /* Espaçamento interno dos campos */
+    border-radius: 15px; /* Bordas arredondadas dos campos */
+    color: black; /* Cor do texto dentro dos campos */
+    font-size: 18px; /* Tamanho da fonte dentro dos campos */
+}
+
+form input::placeholder, form textarea::placeholder{
+    color: rgb(1, 184, 184); /* Cor do texto placeholder (dica dentro do campo) */
+}
+
+form textarea{
+    resize: none; /* Desabilita o redimensionamento manual da caixa de texto */
+    max-height: 200px; /* Define uma altura máxima para a caixa de texto */
+}
+
+form .btn-enviar{
+    margin-top: 20px; /* Margem superior para o botão de enviar */
+    text-align: center; /* Centraliza o botão dentro do formulário */
+}
+
+form .btn-enviar input{
+    width: 120px; /* Define a largura do botão */
+    background-color: rgb(0, 204, 255); /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    font-weight: 700; /* Peso da fonte mais grosso */
+    cursor: pointer; /* Aparece o cursor de "mão" ao passar o mouse */
+    transition: .2s; /* Transição suave para o hover */
+}
+
+/* Estilo do rodapé */
+footer{
+    padding: 40px 4%; /* Espaçamento interno do rodapé */
+    box-shadow: 0 0 40px 10px #ffffff1d; /* Sombra suave ao redor do rodapé */
+}
+
+footer .flex{
+    justify-content: space-between; /* Distribui os itens do rodapé igualmente */
+}
+
+footer .line-footer{
+    padding: 20px 0; /* Espaçamento vertical para as linhas do rodapé */
+}
+
+.borda{
+    border-top: 2px solid rgb(0, 204, 255); /* Linha azul clara na parte superior */
+}
+
+footer .line-footer p i{
+    color: rgb(0, 204, 255); /* Cor dos ícones no rodapé */
+    font-size: 22px; /* Tamanho dos ícones */
+}
+
+footer .line-footer p a{
+    color: black; /* Cor dos links no rodapé */
+}
+
+/* Estilo responsivo para telas menores */
+@media screen and (max-width: 1020px){
+    /* Ajustes gerais */
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Evita rolagem horizontal */
+    }
+
+    .flex {
+        flex-direction: column; /* Alinha os itens verticalmente em telas pequenas */
+    }
+
+    h2.titulo {
+        font-size: 30px; /* Tamanho do título reduzido em telas pequenas */
+        line-height: 34px; /* Altura da linha ajustada */
+    }
+
+    /* Ajustes no cabeçalho */
+    .menu-desktop, .JL-contato {
+        display: none; /* Esconde o menu desktop e o botão de contato */
+    }
+
+    /* Ajustes no topo do site */
+    section.topo-do-site {
+        padding: 20px 8%; /* Reduz o espaçamento interno */
+        box-sizing: border-box; /* Inclui padding e border no tamanho total */
+    }
+
+    .topo-do-site h1 {
+        font-size: 30px; /* Reduz o tamanho do título principal */
+    }
+
+    .topo-do-site .img-topo-site img {
+        width: 100%; /* A imagem ocupa 100% da largura disponível */
+        height: auto; /* Mantém a proporção da altura */
+        max-width: 100%; /* Limita a largura máxima a 100% */
+    }
+
+    section.topo-do-site .flex {
+        gap: 10px; /* Reduz o espaço entre os itens */
+    }
+
+    /* Ajustes nas especialidades */
+    section.especialidades {
+        padding: 40px 8%; /* Ajusta o espaçamento interno */
+        box-sizing: border-box; /* Inclui padding e border no tamanho total */
+    }
+
+    /* Ajustes na seção Sobre */
+    section.sobre {
+        padding: 80px 8%; /* Ajusta o espaçamento interno */
+        box-sizing: border-box; /* Inclui padding e border no tamanho total */
+    }
+
+    .sobre .txt-sobre h2 {
+        font-size: 34px; /* Reduz o tamanho do título */
+        line-height: 35px; /* Altura da linha ajustada */
+        text-align: center; /* Centraliza o título em telas menores */
+    }
+
+    section.sobre .flex {
+        flex-direction: column-reverse; /* Inverte a ordem dos itens para melhor visualização em telas pequenas */
+    }
+
+    .btn-social {
+        text-align: center; /* Centraliza os botões sociais */
+    }
+
+    /* Ajustes no portfólio */
+    section.portfolio {
+        padding: 80px 8%; /* Ajusta o espaçamento interno */
+        box-sizing: border-box; /* Inclui padding e border no tamanho total */
+    }
+
+    .img-port {
+        width: 100%; /* A imagem ocupa toda a largura disponível */
+        max-width: 360px; /* Limita a largura máxima */
+        margin: 0 auto; /* Centraliza a imagem */
+    }
+
+    section.portfolio .flex {
+        gap: 60px; /* Espaço entre os itens do portfólio */
+    }
+
+    /* Ajustes no rodapé */
+    footer .flex {
+        flex-direction: column; /* Alinha os itens verticalmente no rodapé */
+    }
+
+    footer .line-footer {
+        text-align: center; /* Centraliza o conteúdo do rodapé */
+    }
+
+    /* Ajustes no menu mobile */
+    .btn-abrir-menu i {
+        color: rgb(0, 204, 255); /* Cor do ícone de abrir menu */
+        font-size: 40px; /* Tamanho do ícone */
+    }
+
+    .btn-abrir-menu {
+        display: block; /* Exibe o botão de abrir menu em telas menores */
+    }
+}
